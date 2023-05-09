@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="section">
+        <p class="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur ab numquam quidem eum quod, dolor illo ex? Doloribus harum error facere placeat voluptatum possimus aut, doloremque molestias magni esse? Quis enim beatae ut, praesentium sed laboriosam velit accusantium quia laborum facilis. Id temporibus officiis error laborum velit at molestiae omnis.</p>
+    </div>
+
+
+    <script>
+    const text = document.querySelector(".text");
+    text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+
+    const letters = document.querySelectorAll("span");
+    let isSmoking = false;
+    window.addEventListener("mousedown", function () {
+        isSmoking = true;
+    });
+    window.addEventListener("mouseup", function () {
+        isSmoking = false;
+    });
+    for (let i = 0; i < letters.length; i++) {
+        letters[i].addEventListener("mouseover", function () {
+        if (isSmoking) {
+            letters[i].classList.add("active");
+        }
+        });
+    }
+    </script>
+</body>
+</html>
